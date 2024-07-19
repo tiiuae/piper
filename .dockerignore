@@ -1,4 +1,6 @@
 *
 !VERSION
+!models/
 !src/cpp/
 !CMakeLists.txt
+!src/python_run

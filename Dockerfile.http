@@ -1,0 +1,18 @@
+FROM ubuntu:22.04
+
+WORKDIR /app
+
+COPY src/python_run /app
+
+# Install dependencies
+RUN apt-get update && apt-get -y install python3-pip
+
+RUN pip3 install -e .
+RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements_http.txt
+
+COPY models /app/models
+
+EXPOSE 5000
+
+CMD python3 -m piper.http_server -m /app/models/en_GB-alan-medium.onnx
