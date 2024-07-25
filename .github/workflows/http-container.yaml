@@ -1,4 +1,4 @@
-name: Create docker container on push to main
+name: Create docker container
 
 on:
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/tiiuae/manpack-tts-handler
+          images: ghcr.io/tiiuae/piper
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
